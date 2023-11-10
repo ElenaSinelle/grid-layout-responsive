@@ -1,0 +1,181 @@
+/*dimensions*/
+/*fonts*/
+/*colors*/
+/*transition*/
+body {
+  min-width: 320px;
+}
+
+html,
+* {
+  margin: 0;
+  padding: 0;
+  font: normal normal 30px/36px "Architects Daughter", sans-serif, Arial;
+  color: rgba(39, 19, 1, 0.553);
+}
+@media screen and (max-width: 768px) {
+  html,
+  * {
+    font-size: 22px;
+    line-height: 24.2px;
+  }
+}
+@media screen and (max-width: 486px) {
+  html,
+  * {
+    font-size: 16px;
+    line-height: 17.6px;
+  }
+}
+
+.grid-container {
+  display: grid;
+  max-width: 1440px;
+  margin: 0 auto;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 20% 1fr fit-content;
+  grid-template-areas: "header header header" "main main aside" "footer footer footer";
+}
+.grid-container > * {
+  padding: 0.8rem 1.2rem;
+}
+@media screen and (max-width: 768px) {
+  .grid-container > * {
+    padding: 0.6rem 1rem;
+  }
+}
+@media screen and (max-width: 486px) {
+  .grid-container > * {
+    padding: 0.4rem 0.6rem;
+  }
+}
+.grid-container .header {
+  grid-area: header;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: rgb(249, 226, 245);
+  align-items: center;
+}
+.grid-container .header__title {
+  text-decoration: none;
+  color: rgba(190, 97, 10, 0.553);
+  cursor: pointer;
+  transition: all ease-in 0.3s;
+  font-size: 36px;
+}
+@media screen and (max-width: 768px) {
+  .grid-container .header__title {
+    font-size: 26.4px;
+    line-height: 28.6px;
+  }
+}
+@media screen and (max-width: 486px) {
+  .grid-container .header__title {
+    font-size: 19.2px;
+    line-height: 20.8px;
+  }
+}
+@media (hover: hover) {
+  .grid-container .header__title:hover {
+    border-bottom: 0.1rem solid rgba(93, 48, 5, 0.553);
+    color: rgba(93, 48, 5, 0.553);
+    cursor: pointer;
+  }
+}
+.grid-container .header__logo {
+  max-width: 2.5rem;
+  height: auto;
+  justify-self: end;
+  transition: all ease-in 0.3s;
+}
+@media (hover: hover) {
+  .grid-container .header__logo:hover {
+    transform: rotate(180deg);
+    cursor: pointer;
+  }
+}
+.grid-container .main {
+  grid-area: main;
+  background-color: rgba(124, 244, 249, 0.6);
+  display: grid;
+  grid-template-rows: 2fr 3.5fr;
+}
+.grid-container .main__title {
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+  width: 80%;
+}
+.grid-container .main__articles-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas: "section-1 section-2" "section-3 section-3";
+  gap: 0.4rem;
+}
+.grid-container .main__section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: rgba(249, 205, 241, 0.6);
+  border-radius: 10px;
+  transition: all ease-in 0.3s;
+  padding: 0.4rem;
+}
+@media (hover: hover) {
+  .grid-container .main__section:hover {
+    background-color: rgba(244, 159, 228, 0.6);
+    transform: scale(1.02);
+    cursor: pointer;
+  }
+}
+.grid-container .main__section-1 {
+  grid-area: section-1;
+}
+.grid-container .main__section-2 {
+  grid-area: section-2;
+}
+.grid-container .main__section-3 {
+  grid-area: section-3;
+}
+.grid-container .aside {
+  grid-area: aside;
+  background-color: rgba(176, 176, 211, 0.7);
+  text-align: center;
+}
+.grid-container .footer {
+  grid-area: footer;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: rgba(209, 209, 229, 0.7);
+  gap: 0.4rem;
+}
+.grid-container .footer__item {
+  background-color: rgba(174, 215, 216, 0.5);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all ease-in 0.3s;
+  padding: 0.4rem;
+}
+@media (hover: hover) {
+  .grid-container .footer__item:hover {
+    background-color: rgba(140, 198, 199, 0.5);
+    transform: scale(1.02);
+    cursor: pointer;
+  }
+}
+.grid-container .footer__logo {
+  max-width: 3.5rem;
+  height: auto;
+  transition: all ease-in 0.3s;
+}
+@media (hover: hover) {
+  .grid-container .footer__logo:hover {
+    transform: scale(0.8);
+    cursor: pointer;
+  }
+}/*# sourceMappingURL=style.css.map */

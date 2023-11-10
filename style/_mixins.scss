@@ -1,0 +1,40 @@
+@mixin link {
+  text-decoration: none;
+  color: $link-text-color;
+  cursor: pointer;
+  transition: $transition;
+}
+
+@mixin link-hover {
+  border-bottom: 0.1rem solid darken($link-text-color, 20%);
+  color: darken($link-text-color, 20%);
+  cursor: pointer;
+}
+
+@mixin hover-rotate {
+  transform: rotate(180deg);
+  cursor: pointer;
+}
+
+@mixin hover-scale-max($bg-color) {
+  background-color: darken($bg-color, 10%);
+  transform: scale(1.02);
+  cursor: pointer;
+}
+@mixin hover-scale-min {
+  transform: scale(0.8);
+  cursor: pointer;
+}
+
+@mixin item-in-center {
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+}
+
+@mixin flex-container-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
