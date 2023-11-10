@@ -1,0 +1,178 @@
+@import 'variables';
+@import 'mixins';
+
+body {
+  min-width: 320px;
+}
+
+html,
+* {
+  margin: $margin-reset;
+  padding: $padding-reset;
+  font: $main-font;
+  color: $main-text-color;
+
+  @media screen and (max-width: 768px) {
+    font-size: $middle-font-size;
+    line-height: $middle-font-size * 1.1;
+  }
+
+  @media screen and (max-width: 486px) {
+    font-size: $min-font-size;
+    line-height: $min-font-size * 1.1;
+  }
+}
+
+.grid-container {
+  display: grid;
+  max-width: 1440px;
+  margin: $margin-reset auto;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 20% 1fr fit-content;
+  grid-template-areas:
+        "header header header"
+        "main main aside"
+        "footer footer footer";
+
+  & > * {
+    padding: $padding-smaller $padding-max;
+
+    @media screen and (max-width: 768px) {
+      padding: $padding-small $padding-middle;
+    }
+
+    @media screen and (max-width: 486px) {
+      padding: $padding-min $padding-small;
+    }
+  }
+
+  .header {
+    grid-area: header;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: $light-pink-color;
+    align-items: center;
+
+    &__title {
+      @include link;
+      font-size: $max-font-size * 1.2;
+
+      @media screen and (max-width: 768px) {
+        font-size: $middle-font-size * 1.2;
+        line-height: $middle-font-size * 1.3;
+      }
+
+      @media screen and (max-width: 486px) {
+        font-size: $min-font-size * 1.2;
+        line-height: $min-font-size * 1.3;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          @include link-hover;
+        }
+      }
+    }
+
+    &__logo {
+      max-width: $logo-width-min;
+      height: auto;
+      justify-self: end;
+      transition: $transition;
+
+      @media (hover: hover) {
+        &:hover {
+          @include hover-rotate;
+        }
+      }
+    }
+  }
+
+  .main {
+    grid-area: main;
+    background-color: $blue-marine-color;
+    display: grid;
+    grid-template-rows: 2fr 3.5fr;
+
+    &__title {
+      @include item-in-center;
+      width: 80%;
+    }
+
+    &__articles-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-areas:
+            "section-1 section-2"
+            "section-3 section-3";
+      gap: $padding-min;
+    }
+
+    &__section {
+      @include flex-container-centered;
+      background-color: $dark-pink-color;
+      border-radius: 10px;
+      transition: $transition;
+      padding: $padding-min;
+
+      @media (hover: hover) {
+        &:hover {
+          @include hover-scale-max($dark-pink-color);
+        }
+      }
+    }
+
+    &__section-1 {
+      grid-area: section-1;
+    }
+
+    &__section-2 {
+      grid-area: section-2;
+    }
+
+    &__section-3 {
+      grid-area: section-3;
+    }
+  }
+
+  .aside {
+    grid-area: aside;
+    background-color: $gray-color;
+    text-align: center;
+  }
+
+  .footer {
+    grid-area: footer;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background-color: lighten($gray-color, 10%);
+    gap: $padding-min;
+
+    &__item {
+      background-color: $light-green-color;
+      border-radius: 10px;
+      @include flex-container-centered;
+      transition: $transition;
+      padding: $padding-min;
+
+      @media (hover: hover) {
+        &:hover {
+          @include hover-scale-max($light-green-color);
+        }
+      }
+    }
+
+    &__logo {
+      max-width: $logo-width-max;
+      height: auto;
+      transition: $transition;
+
+      @media (hover: hover) {
+        &:hover {
+          @include hover-scale-min;
+        }
+      }
+    }
+  }
+}
