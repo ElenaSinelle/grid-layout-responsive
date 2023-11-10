@@ -28,7 +28,7 @@ html,
   max-width: 1440px;
   margin: $margin-reset auto;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 20% 1fr fit-content;
+  grid-template-rows: 20% 1fr max-content;
   grid-template-areas:
         "header header header"
         "main main aside"
